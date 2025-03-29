@@ -13,32 +13,6 @@
     <link rel="stylesheet" href="./assets/css/responsive-1.css">
 
 
-
-    // In-App Interstitial 
-
-show_9148323({ 
-  type: 'inApp', 
-  inAppSettings: { 
-    frequency: 2, 
-    capping: 0.1, 
-    interval: 30, 
-    timeout: 5, 
-    everyPage: false 
-  } 
-})
-
-/*
-This value is decoded as follows:
-- show automatically 2 ads
-  within 0.1 hours (6 minutes)
-  with a 30-second interval between them
-  and a 5-second delay before the first one is shown.
-  The last digit, 0, means that the session will be saved when you navigate between pages.
-  If you set the last digit as 1, then at any transition between pages,
-  the session will be reset, and the ads will start again.
-*/
-
-
     <style>
         .score-display {
             font-size: 50px;
@@ -74,7 +48,7 @@ This value is decoded as follows:
         }
     </style>
 </head>
-
+<script src='//whephiwums.com/sdk.js' data-zone='9148323' data-sdk='show_9148323'></script>
 <body>
 
     <div class="min-h-screen bg-gradient-to-r from-[#C7913D] to-[#F1D06E] flex justify-center items-center p-3">
@@ -353,5 +327,5 @@ setInterval(() => {
     </script>
  
 </body>
-
+<script src='//whephiwums.com/sdk.js' data-zone='9148323' data-sdk='show_9148323'></script>
 </html>
