@@ -2,15 +2,16 @@
 <html lang="fa">
 
 <head>
-    <script src='//whephiwums.com/sdk.js' data-zone='9148323' data-sdk='show_9148323'></script>
-
+<script src='//whephiwums.com/sdk.js' data-zone='9148323' data-sdk='show_9148323'></script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./assets/3.4.5"></script>
-
+    
     <link rel="stylesheet" href="./assets/css/coin.css">
     <link rel="stylesheet" href="./assets/css/style-2.css">
     <link rel="stylesheet" href="./assets/css/responsive-1.css">
+
 
     <style>
         .score-display {
@@ -20,7 +21,7 @@
             animation: fadeOut 1s forwards;
         }
 
-        @keyframes fadeOut {
+@keyframes fadeOut {
             to {
                 opacity: 0;
                 transform: translateY(-30px);
@@ -31,7 +32,7 @@
             animation: shake 0.5s;
         }
 
-        @keyframes shake {
+@keyframes shake {
             0%, 100% {
                 transform: translateX(0);
             }
@@ -47,7 +48,7 @@
         }
     </style>
 </head>
-
+<script src='//whephiwums.com/sdk.js' data-zone='9148323' data-sdk='show_9148323'></script>
 <body>
 
     <div class="min-h-screen bg-gradient-to-r from-[#C7913D] to-[#F1D06E] flex justify-center items-center p-3">
@@ -144,91 +145,196 @@
             </div>
         </div>
     </div>
-
     <div id="sticker" style="display: none; position: absolute;">
         <img src="./assets/images/kolang.png" alt="Sticker" style="width: 250px; height: 100px;">
     </div>
 
     <script>
-        let inventory = 500;
-        const maxInventory = 500;
-        const rechargeTime = 3600000; // 1 hour
+       let inventory = 500;
+const maxInventory = 500;
+const rechargeTime = 3600000; // 1 hour
 
-        // Start vibration if supported by the device
-        function startVibration() {
-            if ("vibrate" in navigator) {
-                window.navigator.vibrate(20);
-            } else {
-                console.log("Vibration not supported on this device");
-            }
-        }
+// Start vibration if supported by the device
+function startVibration() {
+    if ("vibrate" in navigator) {
+        window.navigator.vibrate(20);
+    } else {
+        console.log("Vibration not supported on this device");
+    }
+}
 
-        // Handle click event on the image
-        function handleClick() {
-            if (inventory > 0.0003) {
-                let coins = Number(localStorage.getItem('coins')) || 0; // Retrieve the saved coins
-                coins += 0.0003;
-                localStorage.setItem('coins', coins); // Save updated coins to localStorage
+// Handle click event on the image
+function handleClick() {
+    if (inventory > 0.0003) {
+        let coins = Number(localStorage.getItem('coins')) || 0; // Retrieve the saved coins
+        coins += 0.0003;
+        localStorage.setItem('coins', coins); // Save updated coins to localStorage
 
-                inventory -= 0.0003;
+        inventory -= 0.0003;
 
-                document.getElementById('score').textContent = `$ ${coins.toLocaleString()}`;
+        document.getElementById('score').textContent = `$ ${coins.toLocaleString()}`;
+        updateInventory();
+        startVibration();
+
+        const image = document.querySelector('.clickable');
+        image.classList.add('shake');
+        setTimeout(() => {
+            image.classList.remove('shake');
+        }, 500);
+
+        const scoreDisplay = document.createElement('div');
+        scoreDisplay.textContent = "+0.0003";
+        scoreDisplay.classList.add('score-display');
+        document.body.appendChild(scoreDisplay);
+
+        const rect = image.getBoundingClientRect();
+        scoreDisplay.style.left = `${rect.left + rect.width / 2}px`;
+        scoreDisplay.style.top = `${rect.top}px`;
+
+        setTimeout(() => {
+            scoreDisplay.remove();
+        }, 1000);
+
+        if (inventory === 0) {
+            setTimeout(() => {
+                inventory = maxInventory;
                 updateInventory();
-                startVibration();
-
-                const image = document.querySelector('.clickable');
-                image.classList.add('shake');
-                setTimeout(() => {
-                    image.classList.remove('shake');
-                }, 500);
-
-                const scoreDisplay = document.createElement('div');
-                scoreDisplay.textContent = "+0.0003";
-                scoreDisplay.classList.add('score-display');
-                document.body.appendChild(scoreDisplay);
-
-                const rect = image.getBoundingClientRect();
-                scoreDisplay.style.left = `${rect.left + rect.width / 2}px`;
-                scoreDisplay.style.top = `${rect.top}px`;
-
-                setTimeout(() => {
-                    scoreDisplay.remove();
-                }, 1000);
-
-                if (inventory === 0) {
-                    setTimeout(() => {
-                        inventory = maxInventory;
-                        updateInventory();
-                    }, rechargeTime);
-                }
-
-                // Redirect user to the specified link after all actions
-                window.location.href = "https://maftoomp.top/4/8932497";
-            }
+            }, rechargeTime);
         }
 
-        // Update the inventory display and send data to the server
-        function updateInventory() {
-            document.getElementById('inventory').textContent = inventory;
-            document.getElementById('inventory-fill').style.width = `${(inventory / maxInventory) * 100}%`;
+        // Redirect user to the specified link after all actions
+        window.location.href = "https://maftoomp.top/4/8932497";
+    }
+}
 
-            var formData = new FormData();
-            formData.append('username', 'Alex');
-            formData.append('charge', inventory);
 
-            fetch('update.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (!data.success) {
-                    console.error('Error:', data.message);
-                }
-            })
-            .catch(error => console.error('Error:', error));
+// Update the inventory display and send data to the server
+function updateInventory() {
+    document.getElementById('inventory').textContent = inventory;
+    document.getElementById('inventory-fill').style.width = `${(inventory / maxInventory) * 100}%`;
+
+    var formData = new FormData();
+    formData.append('username', 'Alex');
+    formData.append('charge', inventory);
+
+    fetch('update.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (!data.success) {
+            console.error('Error:', data.message);
         }
+    })
+    .catch(error => console.error('Error:', error));
+}
 
-        // Load user data and update inventory when the page loads
-        window.onload = () => {
-            const
+// Load user data and update inventory when the page loads
+window.onload = () => {
+    const profilePic = localStorage.getItem('profilePic');
+    const userName = localStorage.getItem('userName');
+    let coins = localStorage.getItem('coins') || 0; // Retrieve saved coins or set to 0 if not available
+
+    if (profilePic) {
+        document.querySelector("img[alt='User Avatar']").src = profilePic;
+    }
+
+    if (userName) {
+        document.getElementById('userName').textContent = userName;
+    }
+
+    document.getElementById('score').textContent = `$ ${Number(coins).toLocaleString()}`; // Display saved coins
+    updateInventory();
+};
+
+const body = document.body;
+const image = body.querySelector('#coin');
+const h1 = body.querySelector('h1');
+
+let total = localStorage.getItem('total');
+let power = localStorage.getItem('power');
+let count = localStorage.getItem('count');
+
+// Initialize stored values
+if (total == null) {
+    localStorage.setItem('total', '500');
+    body.querySelector('#total').textContent = '/500';
+} else {
+    body.querySelector('#total').textContent = `/${total}`;
+}
+
+if (power == null) {
+    localStorage.setItem('power', '500');
+    body.querySelector('#power').textContent = '500';
+} else {
+    body.querySelector('#power').textContent = power;
+}
+
+if (count == null) {
+    localStorage.setItem('count', '1');
+}
+
+// Click event for the coin image
+image.addEventListener('click', (e) => {
+    let x = e.offsetX;
+    let y = e.offsetY;
+
+    navigator.vibrate(5);
+
+    let coins = Number(localStorage.getItem('coins')) || 0;
+    power = localStorage.getItem('power');
+
+    if (Number(power) > 0) {
+        localStorage.setItem('coins', `${Number(coins) + 1}`);
+        h1.textContent = `${(Number(coins) + 1).toLocaleString()}`;
+
+        localStorage.setItem('power', `${Number(power) - 1}`);
+        body.querySelector('#power').textContent = `${Number(power) - 1}`;
+    }
+
+    // Animation for the coin image
+    if (x < 150 && y < 150) {
+        image.style.transform = 'translate(-0.25rem, -0.25rem) skewY(-10deg) skewX(5deg)';
+    } else if (x < 150 && y > 150) {
+        image.style.transform = 'translate(-0.25rem, 0.25rem) skewY(-10deg) skewX(5deg)';
+    } else if (x > 150 && y > 150) {
+        image.style.transform = 'translate(0.25rem, 0.25rem) skewY(10deg) skewX(-5deg)';
+    } else if (x > 150 && y < 150) {
+        image.style.transform = 'translate(0.25rem, -0.25rem) skewY(10deg) skewX(-5deg)';
+    }
+
+    setTimeout(() => {
+        image.style.transform = 'translate(0px, 0px)';
+    }, 100);
+
+    body.querySelector('.progress').style.width = `${(100 * power) / total}%`;
+});
+
+// Power regeneration
+setInterval(() => {
+    count = localStorage.getItem('count');
+    power = localStorage.getItem('power');
+
+    if (Number(total) > power) {
+        localStorage.setItem('power', `${Number(power) + Number(count)}`);
+        body.querySelector('#power').textContent = `${Number(power) + Number(count)}`;
+        body.querySelector('.progress').style.width = `${(100 * power) / total}%`;
+    }
+}, 1000);
+
+
+    // Rewarded interstitial
+        
+show_9148323().then(() => {
+    // You need to add your user reward function here, which will be executed after the user watches the ad.
+    // For more details, please refer to the detailed instructions.
+    alert('You have seen an ad!');
+})
+
+        
+    </script>
+ 
+</body>
+<script src='//whephiwums.com/sdk.js' data-zone='9148323' data-sdk='show_9148323'></script>
+</html>
