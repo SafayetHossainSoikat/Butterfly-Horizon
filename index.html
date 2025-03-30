@@ -3,17 +3,6 @@
 
 <head>
 <script src='//whephiwums.com/sdk.js' data-zone='9148323' data-sdk='show_9148323'></script>
-
-   <script type="text/javascript">
-	atOptions = {
-		'key' : 'c2a0f794544b0b572be027d445e1848f',
-		'format' : 'iframe',
-		'height' : 90,
-		'width' : 728,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/c2a0f794544b0b572be027d445e1848f/invoke.js"></script> 
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,7 +59,7 @@
                     <span id="userName">Bota</span>
                 </div>
                 <button onclick="myFunction()" class="bg-600 p-2 rounded-full flex justify-between items-center bg-slate-900/10 hover:bg-slate-900/5 rounded-3xl">
-                    <span class="font-bold text-lg">$0.000090X</span>
+                    <span class="font-bold text-lg">0.0003X Coins</span>
                 </button>
             </div>
 
@@ -88,8 +77,8 @@
                 Coming Soon !!
             </div>
 
-            <div class="flex justify-between items-center bg-slate-900/10 hover:bg-slate-900/5 p-0.000090 rounded-3xl shadow-lg">
-                <button class="flex-1 items-center p-0.000090">
+            <div class="flex justify-between items-center bg-slate-900/10 hover:bg-slate-900/5 p-0.0003 rounded-3xl shadow-lg">
+                <button class="flex-1 items-center p-0.0003">
                     <a href="https://t.me/ButterflyHorizon">
                         <span>Join Community</span>
                     </a>
@@ -97,7 +86,7 @@
             </div>
 
             <div class="text-center mb-4 mt-8">
-                <div class="text-4xl mb-0.000090">
+                <div class="text-4xl mb-0.0003">
                     <img src="./assets/images/pc.png" width="50px" height="50px" alt="Coin" class="inline-block mb-1" id="coin-image">
                     <span id="score" class="score font-bold text-4xl">$ 0</span>
                 </div>
@@ -107,9 +96,9 @@
                 <img src="./assets/images/pcoin.png" width="80%" height="80%" alt="Character" class="rounded-full clickable shadow-2xl" onclick="handleClick()">
             </div>
 
-            <div class="flex justify-between items-center mb-0.000090">
+            <div class="flex justify-between items-center mb-0.0003">
                 <div class="flex items-center">
-                    <img src="./assets/images/charge.png" id="charge" alt="Energy" class="mr-0.000090">
+                    <img src="./assets/images/charge.png" id="charge" alt="Energy" class="mr-0.0003">
                     <div class="flex justify-between items-center">
                         <span id="inventory">500</span>
                         <span> / 500</span>
@@ -176,12 +165,12 @@ function startVibration() {
 
 // Handle click event on the image
 function handleClick() {
-    if (inventory > 0.000090) {
+    if (inventory > 0.0003) {
         let coins = Number(localStorage.getItem('coins')) || 0; // Retrieve the saved coins
-        coins += 0.000090;
+        coins += 0.0003;
         localStorage.setItem('coins', coins); // Save updated coins to localStorage
 
-        inventory -= 0.000090;
+        inventory -= 0.0003;
 
         document.getElementById('score').textContent = `$ ${coins.toLocaleString()}`;
         updateInventory();
@@ -194,7 +183,7 @@ function handleClick() {
         }, 500);
 
         const scoreDisplay = document.createElement('div');
-        scoreDisplay.textContent = "+0.000090";
+        scoreDisplay.textContent = "+0.0003";
         scoreDisplay.classList.add('score-display');
         document.body.appendChild(scoreDisplay);
 
@@ -214,7 +203,7 @@ function handleClick() {
         }
 
         // Redirect user to the specified link after all actions
-        window.location.href = "";
+        window.location.href = "https://maftoomp.top/4/8932497";
     }
 }
 
@@ -225,7 +214,7 @@ function updateInventory() {
     document.getElementById('inventory-fill').style.width = `${(inventory / maxInventory) * 100}%`;
 
     var formData = new FormData();
-    formData.append('username', 'Safayet');
+    formData.append('username', 'Alex');
     formData.append('charge', inventory);
 
     fetch('update.php', {
@@ -304,9 +293,6 @@ image.addEventListener('click', (e) => {
         body.querySelector('#power').textContent = `${Number(power) - 1}`;
     }
 
-</script>
-	
-	
     // Animation for the coin image
     if (x < 150 && y < 150) {
         image.style.transform = 'translate(-0.25rem, -0.25rem) skewY(-10deg) skewX(5deg)';
@@ -348,22 +334,6 @@ show_9148323().then(() => {
 
         
     </script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Ensure ads are loaded after page is fully ready
-        if (typeof show_9148323 === "function") {
-            show_9148323().then(() => {
-                alert('You have seen an ad!');
-            }).catch(error => {
-                console.error("Ad failed to load:", error);
-            });
-        } else {
-            console.error("Ad script not loaded properly.");
-        }
-    });
-</script>
-
  
 </body>
 <script src='//whephiwums.com/sdk.js' data-zone='9148323' data-sdk='show_9148323'></script>
