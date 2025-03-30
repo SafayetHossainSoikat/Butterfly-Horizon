@@ -304,6 +304,24 @@ image.addEventListener('click', (e) => {
         body.querySelector('#power').textContent = `${Number(power) - 1}`;
     }
 
+</script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Ensure ads are loaded after page is fully ready
+        if (typeof show_9148323 === "function") {
+            show_9148323().then(() => {
+                alert('You have seen an ad!');
+            }).catch(error => {
+                console.error("Ad failed to load:", error);
+            });
+        } else {
+            console.error("Ad script not loaded properly.");
+        }
+    });
+</script>
+	
+	
     // Animation for the coin image
     if (x < 150 && y < 150) {
         image.style.transform = 'translate(-0.25rem, -0.25rem) skewY(-10deg) skewX(5deg)';
