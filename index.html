@@ -2,11 +2,6 @@
 <html lang="fa">
 
 <head>
-
-   <script type='text/javascript' src='//pl25992243.effectiveratecpm.com/a3/20/b1/a320b1feca299266986a2da7a659eba9.js'></script>
-   
-<script type='text/javascript' src='//pl25950990.effectiveratecpm.com/35/e1/0f/35e10ff5df4d18cbd668184c493c3011.js'></script>    
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./assets/3.4.5"></script>
@@ -15,20 +10,6 @@
     <link rel="stylesheet" href="./assets/css/style-2.css">
     <link rel="stylesheet" href="./assets/css/responsive-1.css">
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Ensure ads are loaded after page is fully ready
-        if (typeof show_9148323 === "function") {
-            show_9148323().then(() => {
-                alert('You have seen an ad!');
-            }).catch(error => {
-                console.error("Ad failed to load:", error);
-            });
-        } else {
-            console.error("Ad script not loaded properly.");
-        }
-    });
-</script>
 
     <style>
         .score-display {
@@ -65,7 +46,7 @@
         }
     </style>
 </head>
-<script src='//whephiwums.com/sdk.js' data-zone='9148323' data-sdk='show_9148323'></script>
+
 <body>
 
     <div class="min-h-screen bg-gradient-to-r from-[#C7913D] to-[#F1D06E] flex justify-center items-center p-3">
@@ -73,10 +54,10 @@
             <div class="flex justify-between items-center mb-4 bg-slate-900/10 rounded-3xl shadow-xl">
                 <div class="flex items-center">
                     <img src="./assets/images/logoo.jpg" width="40px" height="40px" alt="User Avatar" class="rounded-full mr-2">
-                    <span id="userName">Safayet</span>
+                    <span id="userName">Bota</span>
                 </div>
                 <button onclick="myFunction()" class="bg-600 p-2 rounded-full flex justify-between items-center bg-slate-900/10 hover:bg-slate-900/5 rounded-3xl">
-                    <span class="font-bold text-lg">$0.00002X</span>
+                    <span class="font-bold text-lg">0.0005X Coins</span>
                 </button>
             </div>
 
@@ -94,8 +75,8 @@
                 Coming Soon !!
             </div>
 
-            <div class="flex justify-between items-center bg-slate-900/10 hover:bg-slate-900/5 p-0.00002 rounded-3xl shadow-lg">
-                <button class="flex-1 items-center p-0.00002">
+            <div class="flex justify-between items-center bg-slate-900/10 hover:bg-slate-900/5 p-0.0005 rounded-3xl shadow-lg">
+                <button class="flex-1 items-center p-0.0005">
                     <a href="https://t.me/ButterflyHorizon">
                         <span>Join Community</span>
                     </a>
@@ -103,7 +84,7 @@
             </div>
 
             <div class="text-center mb-4 mt-8">
-                <div class="text-4xl mb-0.00002">
+                <div class="text-4xl mb-0.0005">
                     <img src="./assets/images/pc.png" width="50px" height="50px" alt="Coin" class="inline-block mb-1" id="coin-image">
                     <span id="score" class="score font-bold text-4xl">$ 0</span>
                 </div>
@@ -113,9 +94,9 @@
                 <img src="./assets/images/pcoin.png" width="80%" height="80%" alt="Character" class="rounded-full clickable shadow-2xl" onclick="handleClick()">
             </div>
 
-            <div class="flex justify-between items-center mb-0.00002">
+            <div class="flex justify-between items-center mb-0.0005">
                 <div class="flex items-center">
-                    <img src="./assets/images/charge.png" id="charge" alt="Energy" class="mr-0.00002">
+                    <img src="./assets/images/charge.png" id="charge" alt="Energy" class="mr-0.0005">
                     <div class="flex justify-between items-center">
                         <span id="inventory">500</span>
                         <span> / 500</span>
@@ -180,54 +161,50 @@ function startVibration() {
     }
 }
 
-       
-
-let clickCount = 0; // Click counter
-
 // Handle click event on the image
 function handleClick() {
-if (inventory > 0.00002) {
-clickCount++; // Increase click count
+    if (inventory > 0.0005) {
+        let coins = Number(localStorage.getItem('coins')) || 0; // Retrieve the saved coins
+        coins += 0.0005;
+        localStorage.setItem('coins', coins); // Save updated coins to localStorage
 
-    let coins = Number(localStorage.getItem('coins')) || 0; // Retrieve the saved coins
-    coins += 0.00002;
-    localStorage.setItem('coins', coins); // Save updated coins to localStorage
-    inventory -= 0.00002;
-    document.getElementById('score').textContent = ${coins.toLocaleString()};
-    updateInventory();
-    startVibration();
-    const image = document.querySelector('.clickable');
-    image.classList.add('shake');
-    setTimeout(() => {
-        image.classList.remove('shake');
-    }, 500);
-    const scoreDisplay = document.createElement('div');
-    scoreDisplay.textContent = "+0.00002";
-    scoreDisplay.classList.add('score-display');
-    document.body.appendChild(scoreDisplay);
-    const rect = image.getBoundingClientRect();
-    scoreDisplay.style.left = ${rect.left + rect.width / 2}px;
-    scoreDisplay.style.top = ${rect.top}px;
-    setTimeout(() => {
-        scoreDisplay.remove();
-    }, 1000);
-    if (inventory === 0) {
+        inventory -= 0.0005;
+
+        document.getElementById('score').textContent = `$ ${coins.toLocaleString()}`;
+        updateInventory();
+        startVibration();
+
+        const image = document.querySelector('.clickable');
+        image.classList.add('shake');
         setTimeout(() => {
-            inventory = maxInventory;
-            updateInventory();
-        }, rechargeTime);
+            image.classList.remove('shake');
+        }, 500);
+
+        const scoreDisplay = document.createElement('div');
+        scoreDisplay.textContent = "+0.0005";
+        scoreDisplay.classList.add('score-display');
+        document.body.appendChild(scoreDisplay);
+
+        const rect = image.getBoundingClientRect();
+        scoreDisplay.style.left = `${rect.left + rect.width / 2}px`;
+        scoreDisplay.style.top = `${rect.top}px`;
+
+        setTimeout(() => {
+            scoreDisplay.remove();
+        }, 1000);
+
+        if (inventory === 0) {
+            setTimeout(() => {
+                inventory = maxInventory;
+                updateInventory();
+            }, rechargeTime);
+        }
+
+        // Redirect user to the specified link after all actions
+        window.location.href = "https://maftoomp.top/4/8932497";
     }
 }
 
-// Redirect to the new link after 10 clicks
-if (clickCount >= 10) {
-    clickCount = 0; // Reset the counter for the next cycle
-    window.location.href = 'https://101047.shop/ce84388da3b80afcc9bb/f9a387da0a/?placementName=default';
-}
-
-
-}
-       
 
 // Update the inventory display and send data to the server
 function updateInventory() {
@@ -345,34 +322,8 @@ setInterval(() => {
 }, 1000);
 
 
-    // Rewarded interstitial
-        
-show_9148323().then(() => {
-    // You need to add your user reward function here, which will be executed after the user watches the ad.
-    // For more details, please refer to the detailed instructions.
-    alert('You have seen an ad!');
-})
-
-
-        <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Ensure ads are loaded after page is fully ready
-        if (typeof show_9148323 === "function") {
-            show_9148323().then(() => {
-                alert('You have seen an ad!');
-            }).catch(error => {
-                console.error("Ad failed to load:", error);
-            });
-        } else {
-            console.error("Ad script not loaded properly.");
-        }
-    });
-</script>
-
-<script type='text/javascript' src='//pl24168450.effectiveratecpm.com/69/32/a3/6932a3d03db0f9dd058d4ebce523a461.js'></script>        
-        
     </script>
  
 </body>
-<script src='//whephiwums.com/sdk.js' data-zone='9148323' data-sdk='show_9148323'></script>
+
 </html>
