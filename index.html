@@ -182,7 +182,54 @@ function startVibration() {
 
        
 
+// Global click counter
+let clickCount = 0;
 
+function handleClick() {
+    if (inventory > 0.0002) {
+        // Original coin logic (unchanged)
+        let coins = Number(localStorage.getItem('coins')) || 0;
+        coins += 0.0002;
+        localStorage.setItem('coins', coins);
+        inventory -= 0.0002;
+
+        document.getElementById('score').textContent = $${coins.toLocaleString()};
+        updateInventory();
+        startVibration();
+
+        const image = document.querySelector('.clickable');
+        image.classList.add('shake');
+        setTimeout(() => {
+            image.classList.remove('shake');
+        }, 500);
+
+        const scoreDisplay = document.createElement('div');
+        scoreDisplay.textContent = "+0.0002";
+        scoreDisplay.classList.add('score-display');
+        document.body.appendChild(scoreDisplay);
+
+        const rect = image.getBoundingClientRect();
+        scoreDisplay.style.left = ${rect.left + rect.width / 2}px;
+        scoreDisplay.style.top = ${rect.top}px;
+
+        setTimeout(() => {
+            scoreDisplay.remove();
+        }, 1000);
+
+        if (inventory === 0) {
+            setTimeout(() => {
+                inventory = maxInventory;
+                updateInventory();
+            }, rechargeTime);
+        }
+
+        // 4-click redirect logic (new addition)
+        clickCount++;
+        if (clickCount === 4) {
+            window.location.href = 'https://stiftais.top/4/8932501';
+        }
+    }
+}
        
 
 
