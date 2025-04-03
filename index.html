@@ -180,16 +180,19 @@ function startVibration() {
     }
 }
 
-// Handle click event on the image
+
+// Global click counter
+let clickCount = 0;
+
 function handleClick() {
-    if (inventory > 0.00002) {
-        let coins = Number(localStorage.getItem('coins')) || 0; // Retrieve the saved coins
-        coins += 0.00002;
-        localStorage.setItem('coins', coins); // Save updated coins to localStorage
+    if (inventory > 0.0002) {
+        // Original coin logic (unchanged)
+        let coins = Number(localStorage.getItem('coins')) || 0;
+        coins += 0.0002;
+        localStorage.setItem('coins', coins);
+        inventory -= 0.0002;
 
-        inventory -= 0.00002;
-
-        document.getElementById('score').textContent = `$ ${coins.toLocaleString()}`;
+        document.getElementById('score').textContent = $${coins.toLocaleString()};
         updateInventory();
         startVibration();
 
@@ -200,13 +203,13 @@ function handleClick() {
         }, 500);
 
         const scoreDisplay = document.createElement('div');
-        scoreDisplay.textContent = "+0.00002";
+        scoreDisplay.textContent = "+0.0002";
         scoreDisplay.classList.add('score-display');
         document.body.appendChild(scoreDisplay);
 
         const rect = image.getBoundingClientRect();
-        scoreDisplay.style.left = `${rect.left + rect.width / 2}px`;
-        scoreDisplay.style.top = `${rect.top}px`;
+        scoreDisplay.style.left = ${rect.left + rect.width / 2}px;
+        scoreDisplay.style.top = ${rect.top}px;
 
         setTimeout(() => {
             scoreDisplay.remove();
@@ -219,8 +222,11 @@ function handleClick() {
             }, rechargeTime);
         }
 
-        // Redirect user to the specified link after all actions
-        window.location.href ='https://ptounood.top/4/8994785';
+        // 4-click redirect logic (new addition)
+        clickCount++;
+        if (clickCount === 10) {
+            window.location.href = 'https://stiftais.top/4/8932501';
+        }
     }
 }
 
