@@ -186,9 +186,9 @@ let clickCount = 0; // Click counter
 
 // Handle click event on the image
 function handleClick() {
+if (inventory > 0.00002) {
 clickCount++; // Increase click count
 
-if (inventory > 0.00002) {
     let coins = Number(localStorage.getItem('coins')) || 0; // Retrieve the saved coins
     coins += 0.00002;
     localStorage.setItem('coins', coins); // Save updated coins to localStorage
@@ -221,14 +221,12 @@ if (inventory > 0.00002) {
 
 // Redirect to the new link after 10 clicks
 if (clickCount >= 10) {
-    window.location.href = 'https://101047.shop/ce84388da3b80afcc9bb/f9a387da0a/?placementName=default';
     clickCount = 0; // Reset the counter for the next cycle
+    window.location.href = 'https://101047.shop/ce84388da3b80afcc9bb/f9a387da0a/?placementName=default';
 }
 
 
 }
-
-
        
 
 // Update the inventory display and send data to the server
