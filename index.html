@@ -182,10 +182,8 @@ function startVibration() {
 
        
 
-let clickCount = 0; // ক্লিক কাউন্টার
-// Handle click event on the image function handleClick() { if (inventory > 0.00002) { let coins = Number(localStorage.getItem('coins')) || 0; // Retrieve the saved coins coins += 0.00002; localStorage.setItem('coins', coins); // Save updated coins to localStorage inventory -= 0.00002; document.getElementById('score').textContent = ${coins.toLocaleString()}; updateInventory(); startVibration(); const image = document.querySelector('.clickable'); image.classList.add('shake'); setTimeout(() => { image.classList.remove('shake'); }, 500); const scoreDisplay = document.createElement('div'); scoreDisplay.textContent = "+0.00002"; scoreDisplay.classList.add('score-display'); document.body.appendChild(scoreDisplay); const rect = image.getBoundingClientRect(); scoreDisplay.style.left = ${rect.left + rect.width / 2}px; scoreDisplay.style.top = ${rect.top}px; setTimeout(() => { scoreDisplay.remove(); }, 1000); if (inventory === 0) { setTimeout(() => { inventory = maxInventory; updateInventory(); }, rechargeTime); }
-// ক্লিক কাউন্ট বৃদ্ধি করুন clickCount++; // যদি ক্লিক 10 বার হয়, তাহলে নতুন লিংকে নিয়ে যাবে if (clickCount >= 10) { window.location.href = 'https://101047.shop/ce84388da3b80afcc9bb/f9a387da0a/?placementName=default'; clickCount = 0; // রিসেট করুন যাতে আবার 10 বার পরে রিডাইরেক্ট হয় } } 
-}
+
+       
 
 
 
