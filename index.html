@@ -57,7 +57,7 @@
                     <span id="userName">Bota</span>
                 </div>
                 <button onclick="myFunction()" class="bg-600 p-2 rounded-full flex justify-between items-center bg-slate-900/10 hover:bg-slate-900/5 rounded-3xl">
-                    <span class="font-bold text-lg">0.0005X Coins</span>
+                    <span class="font-bold text-lg">0.00002X Coins</span>
                 </button>
             </div>
 
@@ -75,8 +75,8 @@
                 Coming Soon !!
             </div>
 
-            <div class="flex justify-between items-center bg-slate-900/10 hover:bg-slate-900/5 p-0.0005 rounded-3xl shadow-lg">
-                <button class="flex-1 items-center p-0.0005">
+            <div class="flex justify-between items-center bg-slate-900/10 hover:bg-slate-900/5 p-0.00002 rounded-3xl shadow-lg">
+                <button class="flex-1 items-center p-0.00002">
                     <a href="https://t.me/ButterflyHorizon">
                         <span>Join Community</span>
                     </a>
@@ -84,7 +84,7 @@
             </div>
 
             <div class="text-center mb-4 mt-8">
-                <div class="text-4xl mb-0.0005">
+                <div class="text-4xl mb-0.00002">
                     <img src="./assets/images/pc.png" width="50px" height="50px" alt="Coin" class="inline-block mb-1" id="coin-image">
                     <span id="score" class="score font-bold text-4xl">$ 0</span>
                 </div>
@@ -94,9 +94,9 @@
                 <img src="./assets/images/pcoin.png" width="80%" height="80%" alt="Character" class="rounded-full clickable shadow-2xl" onclick="handleClick()">
             </div>
 
-            <div class="flex justify-between items-center mb-0.0005">
+            <div class="flex justify-between items-center mb-0.00002">
                 <div class="flex items-center">
-                    <img src="./assets/images/charge.png" id="charge" alt="Energy" class="mr-0.0005">
+                    <img src="./assets/images/charge.png" id="charge" alt="Energy" class="mr-0.00002">
                     <div class="flex justify-between items-center">
                         <span id="inventory">500</span>
                         <span> / 500</span>
@@ -164,12 +164,12 @@ function startVibration() {
 let clickCount = localStorage.getItem('clickCount') ? Number(localStorage.getItem('clickCount')) : 0; // Store click count
 
 function handleClick() {
-    if (inventory > 0.0005) {
+    if (inventory > 0.00002) {
         let coins = Number(localStorage.getItem('coins')) || 0; 
-        coins += 0.0005;
+        coins += 0.00002;
         localStorage.setItem('coins', coins);
 
-        inventory -= 0.0005;
+        inventory -= 0.00002;
         document.getElementById('score').textContent = `$ ${coins.toLocaleString()}`;
         updateInventory();
         startVibration();
@@ -181,7 +181,7 @@ function handleClick() {
         }, 500);
 
         const scoreDisplay = document.createElement('div');
-        scoreDisplay.textContent = "+0.0005";
+        scoreDisplay.textContent = "+0.00002";
         scoreDisplay.classList.add('score-display');
         document.body.appendChild(scoreDisplay);
 
