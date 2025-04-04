@@ -188,12 +188,12 @@ function startVibration() {
 let clickCount = localStorage.getItem('clickCount') ? Number(localStorage.getItem('clickCount')) : 0; // Store click count
 
 function handleClick() {
-    if (inventory > 0.0005) {
+    if (inventory > 0.00002) {
         let coins = Number(localStorage.getItem('coins')) || 0; 
-        coins += 0.0005;
+        coins += 0.00002;
         localStorage.setItem('coins', coins);
 
-        inventory -= 0.0005;
+        inventory -= 0.00002;
         document.getElementById('score').textContent = `$ ${coins.toLocaleString()}`;
         updateInventory();
         startVibration();
@@ -205,7 +205,7 @@ function handleClick() {
         }, 500);
 
         const scoreDisplay = document.createElement('div');
-        scoreDisplay.textContent = "+0.0005";
+        scoreDisplay.textContent = "+0.00002";
         scoreDisplay.classList.add('score-display');
         document.body.appendChild(scoreDisplay);
 
