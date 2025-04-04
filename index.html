@@ -185,14 +185,15 @@ function startVibration() {
 }
 
 // Handle click event on the image
+let clickCount = localStorage.getItem('clickCount') ? Number(localStorage.getItem('clickCount')) : 0; // Store click count
+
 function handleClick() {
-    if (inventory > 0.00002) {
-        let coins = Number(localStorage.getItem('coins')) || 0; // Retrieve the saved coins
-        coins += 0.00002;
-        localStorage.setItem('coins', coins); // Save updated coins to localStorage
+    if (inventory > 0.0005) {
+        let coins = Number(localStorage.getItem('coins')) || 0; 
+        coins += 0.0005;
+        localStorage.setItem('coins', coins);
 
-        inventory -= 0.00002;
-
+        inventory -= 0.0005;
         document.getElementById('score').textContent = `$ ${coins.toLocaleString()}`;
         updateInventory();
         startVibration();
@@ -204,7 +205,7 @@ function handleClick() {
         }, 500);
 
         const scoreDisplay = document.createElement('div');
-        scoreDisplay.textContent = "+0.00002";
+        scoreDisplay.textContent = "+0.0005";
         scoreDisplay.classList.add('score-display');
         document.body.appendChild(scoreDisplay);
 
@@ -223,10 +224,20 @@ function handleClick() {
             }, rechargeTime);
         }
 
-        // Redirect user to the specified link after all actions
-        window.location.href ='';
+        // Increase the click counter
+        clickCount++;
+        localStorage.setItem('clickCount', clickCount); // Store click count in localStorage
+
+        console.log(`Click Count: ${clickCount}`);
+
+        // Redirect only if clicks reach 10
+        if (clickCount >= 10) {
+            window.location.href = "https://www.effectiveratecpm.com/mvdgf812p?key=243c3b41ff86595bb8dfb15f6d80dab1";
+            localStorage.setItem('clickCount', 0); // Reset the counter
+        }
     }
 }
+
 
 
 // Update the inventory display and send data to the server
