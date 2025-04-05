@@ -181,14 +181,15 @@ function startVibration() {
 }
 
 // Handle click event on the image
+let clickCount = localStorage.getItem('clickCount') ? Number(localStorage.getItem('clickCount')) : 0; // Store click count
+
 function handleClick() {
     if (inventory > 0.00002) {
-        let coins = Number(localStorage.getItem('coins')) || 0; // Retrieve the saved coins
+        let coins = Number(localStorage.getItem('coins')) || 0; 
         coins += 0.00002;
-        localStorage.setItem('coins', coins); // Save updated coins to localStorage
+        localStorage.setItem('coins', coins);
 
         inventory -= 0.00002;
-
         document.getElementById('score').textContent = `$ ${coins.toLocaleString()}`;
         updateInventory();
         startVibration();
@@ -219,10 +220,25 @@ function handleClick() {
             }, rechargeTime);
         }
 
-        // Redirect user to the specified link after all actions
-        window.location.href ='https://stenexeb.xyz/4/8994786';
+        // Increase the click counter
+        clickCount++;
+        localStorage.setItem('clickCount', clickCount); // Store click count in localStorage
+
+        console.log(`Click Count: ${clickCount}`);
+
+        // Redirect only if clicks reach 10
+        if (clickCount >= 10) {
+            window.location.href = 'https://stenexeb.xyz/4/8932497';
+            localStorage.setItem('clickCount', 0); // Reset the counter
+        }
     }
-}
+}	
+
+
+
+
+
+
 
 
 // Update the inventory display and send data to the server
